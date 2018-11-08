@@ -1,0 +1,121 @@
+body{
+	overflow-x: hidden;
+}
+
+#diaporama{
+	width: 70%;
+	height: 400px;
+	margin: auto;
+	margin-top: 50px;
+	display: flex;
+	justify-content: center;
+	position: relative;
+	padding-bottom: 100px;
+	padding-top: 100px;
+}
+
+.contenu{
+	z-index: 3;
+}
+
+#contenu1{
+	background-image: url('../images/mapExplic.png');
+	background-size: 100% 400px;
+	width: 1150px;
+}
+
+#contenu2{
+	background-image: url('../images/reservation.png');
+	background-size: 100% 400px;
+	width: 150px;
+	transform:perspective(400px) rotateY(-45deg);
+	margin-left: -15px;
+}
+
+#contenu3{
+	background-image: url('../images/signature.png');
+	background-size: 100% 400px;
+	width: 150px;
+	transform:perspective(400px) rotateY(-45deg);
+	margin-left: -25px;
+}
+
+#contenu4{
+	background-image: url('../images/reserve.png');
+	background-size: 100% 400px;
+	width: 150px;
+	transform:perspective(400px) rotateY(-45deg);
+	margin-left: -25px;
+}
+
+#stop, #demarrer{
+	position: absolute;
+	right: 20%;
+	top: 50px;
+	background-color: white;
+	border: none;
+	background-size: 100%;
+	width: 50px;
+	height: 50px;
+	cursor:pointer;
+	outline: 0; /* permet d'enelever l'encadré bleu lors de la sélection du bouton */
+	z-index: 1;
+}
+
+#demarrer{
+	background-image: url('../images/lecture.png');
+	display: none;
+	opacity: 0;
+}
+
+#stop{	
+	background-image: url('../images/pause.png');
+}
+
+#logo{
+	position: absolute;
+	top: 0;
+}
+
+
+#flecheGauche, #flecheDroite{
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	top: 300px;
+	background-size: 100%;
+}
+
+#flecheGauche{	
+	left: 5%;
+	background-image: url('../images/gaucheOff.png');
+}
+
+#flecheDroite{
+	right: 5%;
+	background-image: url('../images/droiteOff.jpg');
+}
+
+#velo{
+	position: absolute;
+	z-index: -1;
+	width: 600px;
+	transform: rotate(-45deg);
+	margin-top: 100px;
+}
+
+#velo2{
+	position: absolute;
+	z-index: -1;
+	width: 600px;
+	transform:scaleX(-1) rotate(-45deg);
+	margin-top: 100px;	
+	right: 0;
+}
+
+#parcour{
+	position: absolute;
+	z-index: -1;
+	width: 40%;
+	right: 0px;
+}

@@ -42,33 +42,38 @@
 	</div>
 	<div id="diaporamaLow">
 		<div class="contenuLow" id="contenu1Low">
-		<div class="boiteTimelineLow">
-			<div id="timelineLow" class="timelineLow"></div>
-		</div>	
+			<div class="boiteTimelineLow">
+				<div id="timelineLow" class="timelineLow"></div>
+			</div>	
+		</div>
 	</div>
 	<div id="containMap">
-		<div id="map"></div>
-		<div id="formulaireReservation">
-			<p id="adresse"></p>
-			<p id="places"></p>
-			<p id="veloDispo"></p>
-			<div id='form'>
-				<label for="nom">Nom :</label><input type="text" name="nom" id="nom" /><br /><br />
-				<label for="prenom">Prénom :</label><input type="text" name="prenom" id="prenom" /><br />
-				<button id="reserver"><a href="#retour">Réserver</a></button>
-				<button id="revenir">Retour à la map</button>
+		<div id="containReserv">
+			<div id="map"></div>
+			<div id="formulaireReservation">
+				<p id="adresse"></p>
+				<p id="places"></p>
+				<p id="veloDispo"></p>
+				<div id='form'>
+					<label for="nom">Nom :</label><input type="text" name="nom" id="nom" /><br /><br />
+					<label for="prenom">Prénom :</label><input type="text" name="prenom" id="prenom" /><br />
+					<button id="reserver">Réserver</button>
+					<button id="revenir">Retour à la map</button>
+				</div>
+				<div id="signature">
+					<canvas id="sign" width="250" height="200"></canvas>
+					<button id="clear">Effacer</button>
+					<button id="check">Valider</button>
+				</div>
 			</div>
-			<div id="signature">
-				<canvas id="sign" width="250" height="200"></canvas>
-				<button id="clear">Effacer</button>
-				<button id="check">Valider</button>
+		</div>		
+		<div id="containRetour">
+			<div id="retour"></div>
+			<div id="chrono">
+				<div id="compteur"></div>
 			</div>
 		</div>
-		<div id="retour"></div>
-		<div id="chrono">
-			<div id="compteur"></div>
-			<button id='annuler'>Annuler</button>
-		</div>
+		
 	</div>	
 
 	<script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>

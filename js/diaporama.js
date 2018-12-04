@@ -2,21 +2,22 @@
     --------- Déclaration variables pour les diaps ----------
 */
 
-var modification = [{
-	"transform": "perspective(400px) rotateY(-45deg)",
-  	"width": "150px",
-  	"transition-duration": "3s"
-},
-{
-	"transform": "perspective(400px) rotateY(45deg)",
-  	"width": "150px",
-  	"transition-duration": "3s"
-},
-{
-	"transform": "rotateY(0deg)",
-  	"width": "1150px",
-  	"transition-duration": "3s"
-	}
+var modification = [
+    {
+    	"transform": "perspective(400px) rotateY(-45deg)",
+      	"width": "150px",
+      	"transition-duration": "3s"
+    },
+    {
+    	"transform": "perspective(400px) rotateY(45deg)",
+      	"width": "150px",
+      	"transition-duration": "3s"
+    },
+    {
+    	"transform": "rotateY(0deg)",
+      	"width": "1150px",
+      	"transition-duration": "3s"
+    }
 ];
 
 $('#contenu1').css({

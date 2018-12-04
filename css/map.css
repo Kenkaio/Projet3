@@ -1,7 +1,16 @@
 #containMap{
 	display: flex;
+	flex-direction: column;
 	width: 80%;	
 	margin: auto;
+}
+
+#containRetour{
+	display: flex;
+}
+
+#containReserv{
+	display: flex;
 }
 
 #map{

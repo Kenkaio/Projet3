@@ -1,10 +1,5 @@
 window.onload = function() { 
-	
-	// Si une réservation existe on supprime la map
-	if (sessionStorage.getItem('exist') == "true" || exist == 1) {
-    	$('#map').hide();
-    }
-
+	var dataLieu = JSON.parse(sessionStorage.getItem('lieu'));
 	// Initialisation de la map préalablement chargé sur fichier HTML
     L.mapquest.key = 'h929kA7Z4D4lFKTIgc5KacHfwVm8F1Sy';
     var baseLayer = L.mapquest.tileLayer('map');
@@ -14,29 +9,6 @@ window.onload = function() {
       layers: baseLayer,
       zoom: 12
     });	
-
-    /* ------ Création de la fonction compteur lancé toutes les secondes ------ */
-    function compteur(){
-    	var date = sessionStorage.getItem("date");
-    	var dateConv = Date.parse(date);
-		var nouvelleDate = new Date();
-		var nouvelleDateConv = Date.parse(nouvelleDate);
-    	var msecPerMinute = 1000 * 60;
-    	var interval = (nouvelleDateConv - dateConv);
-    	var chrono = 1200000 - interval;
-    	var verif = chrono;
-    	var minutes = Math.floor(chrono / msecPerMinute);
-		chrono = chrono - (minutes * msecPerMinute);
-		var seconds = Math.floor(chrono / 1000);
-    	if (verif < 0) {
-    		clear();
-    	}
-    	else{
-    		$('#compteur').text('Votre vélo est réservé pour ' + minutes + " minutes et " + seconds + " secondes");
-    	}
-    }
-
-    setInterval(compteur, 1000);
 
     /* ----- Récupération des infos api jcdecaux + ajout marqueurs sur la map ------- */
 
@@ -54,9 +26,9 @@ window.onload = function() {
             	alt: id,
             	icon: L.mapquest.icons.marker()
           	});
-
-          	if (sessionStorage.getItem('exist') == "true") { 
-          		$('#retour').text("Vélo réservé à l'adresse : " + sessionStorage.getItem("adresse") + " par " + sessionStorage.getItem("prenom") + " " + sessionStorage.getItem("nom"));
+          	if (dataLieu != null) { 
+          		var dataId = JSON.parse(localStorage.getItem('identite'));
+          		$('#retour').text("Vélo réservé à l'adresse : " + dataLieu.adresse + " par " + dataId.prenom + " " + dataId.nom);
 		    	$('#retour').slideDown();
 		    	$('#chrono').slideDown();
 		    }
@@ -154,6 +126,29 @@ window.onload = function() {
         }
         map.addLayer(markers);
 	});
+	/* ------ Création de la fonction compteur lancé toutes les secondes ------ */
+    function compteur(){
+    	if (dataLieu != null) {
+	    	var date = dataLieu.date;
+	    	var dateConv = Date.parse(date);
+			var nouvelleDate = new Date();
+			var nouvelleDateConv = Date.parse(nouvelleDate);
+	    	var msecPerMinute = 1000 * 60;
+	    	var interval = (nouvelleDateConv - dateConv);
+	    	var chrono = 1200000 - interval;
+	    	var verif = chrono;
+	    	var minutes = Math.floor(chrono / msecPerMinute);
+			chrono = chrono - (minutes * msecPerMinute);
+			var seconds = Math.floor(chrono / 1000);
+	    	if (verif < 0) {
+	    		clear();
+	    	}
+	    	else{
+	    		$('#compteur').text('Votre vélo est réservé pour ' + minutes + " minutes et " + seconds + " secondes");
+	    	}
+	    }
+    }
+    setInterval(compteur, 1000);
 }
 
 
